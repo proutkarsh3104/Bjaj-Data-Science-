@@ -16,16 +16,13 @@ except ImportError:
     def is_out_of_range(v, r): return False
 
 # TESSERACT_PATH = r'C:/Program Files/Tesseract-OCR/tesseract.exe'
-# try:
-#     pytesseract.pytesseract.tesseract_cmd = TESSERACT_PATH
-#     tesseract_version = pytesseract.get_tesseract_version()
-#     logging.info(f"Tesseract version {tesseract_version} found at: {TESSERACT_PATH}")
-# except pytesseract.TesseractNotFoundError:
-#     logging.error(f"Tesseract executable NOT FOUND at '{TESSERACT_PATH}'. Please install Tesseract and/or set the correct path.")
-#     raise RuntimeError(f"Tesseract not found at the specified path: {TESSERACT_PATH}")
-# except Exception as e:
-#     logging.error(f"An unexpected error occurred while configuring Tesseract: {e}")
-#     raise
+try:
+   
+    tesseract_version = pytesseract.get_tesseract_version()
+    logging.info(f"Tesseract version {tesseract_version} found automatically in container PATH.") # Modified log
+except pytesseract.TesseractNotFoundError:
+    logging.error("Tesseract executable NOT FOUND in container PATH. Check Dockerfile apt-get install step.")
+    raise RuntimeError("Tesseract not found in container.")
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 log = logging.getLogger(__name__)
