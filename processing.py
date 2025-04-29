@@ -15,7 +15,7 @@ except ImportError:
     def clean_text(text): return str(text).strip() if text else text
     def is_out_of_range(v, r): return False
 
-TESSERACT_PATH = r'C:/Program Files/Tesseract-OCR/tesseract.exe'
+# TESSERACT_PATH = r'C:/Program Files/Tesseract-OCR/tesseract.exe'
 try:
     pytesseract.pytesseract.tesseract_cmd = TESSERACT_PATH
     tesseract_version = pytesseract.get_tesseract_version()
