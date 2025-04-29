@@ -1,0 +1,9 @@
+fastapi==0.110.0
+uvicorn[standard]==0.27.1
+python-multipart==0.0.6
+Pillow==10.2.0
+opencv-python-headless==4.9.0.80
+pytesseract==0.3.10
+pandas==2.2.1
+numpy==1.26.4
+regex==2023.12.22
